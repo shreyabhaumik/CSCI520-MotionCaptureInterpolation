@@ -49,44 +49,44 @@ c. Bezier interpolation with SLERPing of quaternions
 ### **ACCOMPLISHMENTS - EXTRA CREDITS:**
 1. **Displaying and Analyzing the computation time of the different interpolation techniques:**  
    > I used “performanceCounter.h” and computed the time taken by the different interpolation techniques.  
->
->For “131_04-dance.amc" with N = 20:  
+   >
+   >For “131_04-dance.amc" with N = 20:  
 As we can see below, Linear Interpolation Euler (0.007904) < Bezier Interpolation Euler (0.031804) < Linear Interpolation SLERP Quaternion (0.068853) < Bezier Interpolation SLERP Quaternion (0.139704).  
->
->![Linear Interpolation Euler](images/P1.png)  
+   >
+   >![Linear Interpolation Euler](images/P1.png)  
 ![Bezier Interpolation Euler](images/P2.png)  
 ![Linear Interpolation SLERP Quaternion](images/P3.png)  
 ![Bezier Interpolation SLERP Quaternion](images/P4.png)  
-> 
->**Analysis:**  
+   > 
+   >**Analysis:**  
 Both the Euler representations take less time than the SLERP Quaternion representations because SLERP requires trigonometric calculations.  
 Both the Linear interpolations take less time than the Bezier interpolations as the latter is more complex and requires many steps in calculation.  
 
 2. **Used LERP for very small angles between two quaternions in SLERP:**  
    > LERP is faster than SLERP computationally, so I was wondering if it would be a good idea to do the calculation for θ -> 0 using LERP instead of SLERP in the Slerp function. So I re-implemented SLERP using LERP for θ -> 0 (but not equal to 0).  
-> Then I drew graph comparison between SLERP quaternion and SLERP&LERP quaternion for both Linear (in ‘graph/graph\ 5’ folder) and Bezier (in ‘graph/graph\ 6’ folder) interpolation methods. 
->  
-> ![Linear SLERP Quaternion vs Linear SLERP and LERP Quaternion vs Input](images/P5.png)  
+   > Then I drew graph comparison between SLERP quaternion and SLERP&LERP quaternion for both Linear (in ‘graph/graph\ 5’ folder) and Bezier (in ‘graph/graph\ 6’ folder) interpolation methods. 
+   >  
+   > ![Linear SLERP Quaternion vs Linear SLERP and LERP Quaternion vs Input](images/P5.png)  
 ![Bezier SLERP Quaternion vs Bezier SLERP and LERP Quaternion vs Input](images/P6.png)  
->
->**Analysis:**  
+   >
+   >**Analysis:**  
 The graphs (as you can see above), overlapped completely (to the eye). So, I looked into the corresponding .amc files and found that out of 300 frames one or two vary in the thousandths or ten-thousandths decimal places. So I also recorded the computation time for both the methods and found that the SLERP&LERP methods for both Linear and Bezier are taking more time than the SLERP methods for Linear and Bezier. So I deduced, SLERP&LERP is taking more time since the result has to be normalized again where LERP is used, which is not the case where SLERP is used.  
->
-> ![Linear Interpolation SLERP+LERP Quaternion](images/P7.png)  
+   >
+   > ![Linear Interpolation SLERP+LERP Quaternion](images/P7.png)  
 ![Linear Interpolation SLERP Quaternion](images/P8.png)  
->
-> Linear Interpolation SLERP+LERP Quaternion (0.076136) > Linear Interpolation SLERP Quaternion (0.071625)  
->
-> ![Bezier Interpolation SLERP+LERP Quaternion](images/P9.png)  
+   >
+   > Linear Interpolation SLERP+LERP Quaternion (0.076136) > Linear Interpolation SLERP Quaternion (0.071625)  
+   >
+   > ![Bezier Interpolation SLERP+LERP Quaternion](images/P9.png)  
 ![Bezier Interpolation SLERP Quaternion](images/P10.png)  
->
-> Bezier Interpolation SLERP+LERP Quaternion (0.161845) > Bezier Interpolation SLERP Quaternion (0.143492)  
+   >
+   > Bezier Interpolation SLERP+LERP Quaternion (0.161845) > Bezier Interpolation SLERP Quaternion (0.143492)  
 
 3. **Changed ground pattern from checker to concentric squares:**  
    > Initially I was trying to add a fade-away effect from center of concentric squares for the ground, but the fading was being too uniform, and the concentric squares weren’t vividly visible. So, I changed it to alternate between two shades (a dark and a light one).  
 
 4. **FLTK features added:**  
-     >- Added a button ‘Fly Cam’ to zoom-out->rotate->zoom-in the camera back to initial position to show the ground pattern added. On clicking ‘Fly Cam’ button, a message is going to pop up saying “This is to show the PATTERN on the GROUND: concentric squares”. Click ‘Close’ and the animation will start.  
+   > - Added a button ‘Fly Cam’ to zoom-out->rotate->zoom-in the camera back to initial position to show the ground pattern added. On clicking ‘Fly Cam’ button, a message is going to pop up saying “This is to show the PATTERN on the GROUND: concentric squares”. Click ‘Close’ and the animation will start.  
    > - Also changed the color of the window and labels of value inputs.  
 
 5. **Color changes for skeleton, ground, background, fog:**  
