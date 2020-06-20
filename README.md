@@ -26,7 +26,7 @@ To run the player:
 To run the interpolator(sample):  
     ```
     ./interpolate 135-martialArts.asf 135_06-martialArts.amc b q 40 135_06-martialArts-bq-N40.amc
-    ```
+    ```  
 
 ### **OBJECTIVE:**
 The objective of this assignment is to implement three interpolation schemes (Bezier interpolation for Euler angles, Linear interpolation with SLERPing of quaternions, Bezier interpolation with SLERPing of quaternions) to interpolate human motion data (stored in .amc files) from an Optical mocap system.
