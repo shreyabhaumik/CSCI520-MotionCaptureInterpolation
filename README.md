@@ -23,7 +23,7 @@ To run the player:
     ```
     ./mocapPlayer
     ```
-To run the interpolator(sample):  
+    To run the interpolator(sample):  
     ```
     ./interpolate 135-martialArts.asf 135_06-martialArts.amc b q 40 135_06-martialArts-bq-N40.amc
     ```  
